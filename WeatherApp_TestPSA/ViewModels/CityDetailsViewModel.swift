@@ -18,8 +18,8 @@ final class CityDetailsViewModel{
     }
     
     //Décidez quelles données afficher
-    func decideWhatDataToShow(){
-        if city.weatherData != nil {
+    func decideWhatDataToShow(isRefreshing: Bool){
+        if city.weatherData != nil && !isRefreshing{
             validateCityDataBeforePresenting(showAlert: true)
         }else {
             //Vérifiez la disponibilité d'Internet
@@ -38,14 +38,17 @@ final class CityDetailsViewModel{
             DispatchQueue.main.async {
                 switch result{
                 case .success(let data):
-                    CoreDataManager.shared.addWeatherDataToCity(city: self!.city, response: data)
+                    if let weatherData = self?.city.weatherData{
+                        CoreDataManager.shared.updateWeatherDataToCity(data: weatherData, response: data)
+                    }else{
+                        CoreDataManager.shared.addWeatherDataToCity(city: self!.city, response: data)
+                    }
                     self?.validateCityDataBeforePresenting(showAlert: false)
                 case .failure(let errorMessage):
                     print(errorMessage)
                     self?.delegate?.showErrorAlertWithMessage(message: "Nous avons rencontré une erreur inattendue ! Veuillez réessayer")
                 }
             }
-            
         }
     }
     

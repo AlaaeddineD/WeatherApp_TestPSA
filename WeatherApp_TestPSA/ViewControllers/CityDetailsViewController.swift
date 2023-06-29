@@ -70,11 +70,11 @@ class CityDetailsViewController: UIViewController {
         )
         
         viewModel.delegate = self
-        viewModel.decideWhatDataToShow()
+        viewModel.decideWhatDataToShow(isRefreshing: false)
     }
     
     @objc func refreshCityWeatherData(){
-        
+        viewModel.decideWhatDataToShow(isRefreshing: true)
     }
 }
 

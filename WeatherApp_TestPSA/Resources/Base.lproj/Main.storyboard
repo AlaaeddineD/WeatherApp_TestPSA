@@ -31,14 +31,29 @@
                     <view key="view" contentMode="scaleToFill" id="P98-2y-Vlp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="h0B-I8-cEo">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="O2Q-dD-uHH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h0B-I8-cEo" firstAttribute="trailing" secondItem="O2Q-dD-uHH" secondAttribute="trailing" id="iHG-1M-jx7"/>
+                            <constraint firstItem="h0B-I8-cEo" firstAttribute="bottom" secondItem="O2Q-dD-uHH" secondAttribute="bottom" id="o9A-dH-ngU"/>
+                            <constraint firstItem="h0B-I8-cEo" firstAttribute="top" secondItem="O2Q-dD-uHH" secondAttribute="top" id="pNu-cp-MNI"/>
+                            <constraint firstItem="h0B-I8-cEo" firstAttribute="leading" secondItem="O2Q-dD-uHH" secondAttribute="leading" id="zWO-R7-mjv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="66D-mX-YpQ"/>
+                    <connections>
+                        <outlet property="citiesTableView" destination="h0B-I8-cEo" id="FEI-cg-YoO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9OX-r2-gmg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="418" y="-146"/>
+            <point key="canvasLocation" x="417.55725190839695" y="-146.47887323943664"/>
         </scene>
         <!--Add City View Controller-->
         <scene sceneID="2Qk-qw-X3w">

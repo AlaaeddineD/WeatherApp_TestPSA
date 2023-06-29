@@ -101,14 +101,10 @@
 		553D19E92A4DB7D90057BFD0 /* WeatherApp_TestPSA */ = {
 			isa = PBXGroup;
 			children = (
-				553D19EA2A4DB7D90057BFD0 /* AppDelegate.swift */,
-				553D19EC2A4DB7D90057BFD0 /* SceneDelegate.swift */,
+				556A7FE42A4DB8E900034312 /* Application */,
+				556A7FE62A4DB91200034312 /* CoreData */,
+				556A7FE52A4DB90900034312 /* Resources */,
 				553D19EE2A4DB7D90057BFD0 /* ViewController.swift */,
-				553D19F02A4DB7D90057BFD0 /* Main.storyboard */,
-				553D19F62A4DB7D90057BFD0 /* Assets.xcassets */,
-				553D19F82A4DB7D90057BFD0 /* LaunchScreen.storyboard */,
-				553D19FB2A4DB7D90057BFD0 /* Info.plist */,
-				553D19F32A4DB7D90057BFD0 /* WeatherApp_TestPSA.xcdatamodeld */,
 			);
 			path = WeatherApp_TestPSA;
 			sourceTree = "<group>";
@@ -128,6 +124,34 @@
 				553D1A102A4DB7D90057BFD0 /* WeatherApp_TestPSAUITestsLaunchTests.swift */,
 			);
 			path = WeatherApp_TestPSAUITests;
+			sourceTree = "<group>";
+		};
+		556A7FE42A4DB8E900034312 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				553D19EA2A4DB7D90057BFD0 /* AppDelegate.swift */,
+				553D19EC2A4DB7D90057BFD0 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		556A7FE52A4DB90900034312 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				553D19F02A4DB7D90057BFD0 /* Main.storyboard */,
+				553D19F62A4DB7D90057BFD0 /* Assets.xcassets */,
+				553D19F82A4DB7D90057BFD0 /* LaunchScreen.storyboard */,
+				553D19FB2A4DB7D90057BFD0 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		556A7FE62A4DB91200034312 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				553D19F32A4DB7D90057BFD0 /* WeatherApp_TestPSA.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,12 +466,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherApp_TestPSA/Info.plist;
+				INFOPLIST_FILE = WeatherApp_TestPSA/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,12 +492,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherApp_TestPSA/Info.plist;
+				INFOPLIST_FILE = WeatherApp_TestPSA/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

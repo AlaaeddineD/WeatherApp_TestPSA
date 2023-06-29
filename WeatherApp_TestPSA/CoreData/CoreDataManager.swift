@@ -43,6 +43,26 @@ final class CoreDataManager{
         return fetchedCities
     }
     
+    func addWeatherDataToCity(city: City, response: WeatherApiResponse){
+        let data = WeatherData(context: persistentContainer.viewContext)
+        
+        data.temperature = response.main.temp
+        data.feelsLike = response.main.feelsLike
+        data.icon = response.weather[0].icon
+        data.humidity = Int32(response.main.humidity)
+        data.visibility = Int32(response.visibility)
+        data.windSpeed = response.wind.speed
+        data.cloudiness = Int32(response.clouds.all)
+        data.rain = response.rain != nil ? response.rain!.lastHour : 0
+        data.snow = response.snow != nil ? response.snow!.lastHour : 0
+        data.timeOfCall = Date(timeIntervalSince1970: response.dt)
+        data.sunriseTime = Date(timeIntervalSince1970: response.sys.sunrise)
+        data.sunsetTime = Date(timeIntervalSince1970: response.sys.sunset)
+        
+        city.weatherData = data
+        save()
+    }
+    
     func save () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

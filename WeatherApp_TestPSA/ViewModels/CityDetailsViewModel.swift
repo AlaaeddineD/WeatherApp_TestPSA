@@ -42,7 +42,7 @@ final class CityDetailsViewModel{
                 switch result{
                 case .success(let data):
                     if let weatherData = self?.city.weatherData{
-                        CoreDataManager.shared.updateWeatherDataToCity(data: weatherData, response: data)
+                        CoreDataManager.shared.updateWeatherData(data: weatherData, response: data)
                     }else{
                         CoreDataManager.shared.addWeatherDataToCity(city: self!.city, response: data)
                     }

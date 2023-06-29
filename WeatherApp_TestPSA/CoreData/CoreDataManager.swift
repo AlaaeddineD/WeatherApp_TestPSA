@@ -63,7 +63,7 @@ final class CoreDataManager{
         save()
     }
     
-    func updateWeatherDataToCity(data: WeatherData, response: WeatherApiResponse){
+    func updateWeatherData(data: WeatherData, response: WeatherApiResponse){
         data.temperature = response.main.temp
         data.feelsLike = response.main.feelsLike
         data.icon = response.weather[0].icon
@@ -77,6 +77,11 @@ final class CoreDataManager{
         data.sunriseTime = Date(timeIntervalSince1970: response.sys.sunrise)
         data.sunsetTime = Date(timeIntervalSince1970: response.sys.sunset)
         
+        save()
+    }
+    
+    func deleteCity(city:City){
+        persistentContainer.viewContext.delete(city)
         save()
     }
     

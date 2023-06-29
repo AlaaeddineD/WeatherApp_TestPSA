@@ -73,6 +73,36 @@ extension HomeViewController: UITableViewDelegate{
         citiesTableView.deselectRow(at: indexPath, animated: true)
         presentCityDetailsView(city: cities[indexPath.row])
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, completionHandler) in
+            self?.deleteCityAction(indexPath: indexPath)
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    private func deleteCityAction(indexPath: IndexPath) {
+        let city = cities[indexPath.row]
+        
+        let alert = UIAlertController(title: "Alert", message: "Voulez-vous vraiment supprimer \(city.name!)?", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Oui", style: .destructive) {
+            [weak self] _ in
+            CoreDataManager.shared.deleteCity(city: city)
+            self?.cities = CoreDataManager.shared.fetchCities()
+            self?.citiesTableView.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "Non", style: .default)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 //MARK: TableViewDataSource

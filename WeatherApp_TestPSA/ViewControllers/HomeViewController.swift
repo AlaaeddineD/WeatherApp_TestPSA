@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         cities = CoreDataManager.shared.fetchCities()
-        print(cities.count)
         citiesTableView.reloadData()
     }
     
@@ -43,6 +42,21 @@ class HomeViewController: UIViewController {
         }
         
         navigationController?.pushViewController(addCityVC, animated: true)
+    }
+    
+    private func presentCityDetailsView(city: City){
+        guard let cityDetailsVC = storyboard?.instantiateViewController(
+            identifier: CityDetailsViewController.storyboardIdentifier,
+            creator: { coder -> CityDetailsViewController? in
+                CityDetailsViewController(coder: coder, city: city)
+            }) as? CityDetailsViewController else {
+            
+            print("Impossible de trouver une vue avec cet identifiant \(CityDetailsViewController.storyboardIdentifier)")
+
+            return
+        }
+        
+        navigationController?.pushViewController(cityDetailsVC, animated: true)
     }
 }
 
@@ -57,6 +71,7 @@ extension HomeViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         citiesTableView.deselectRow(at: indexPath, animated: true)
+        presentCityDetailsView(city: cities[indexPath.row])
     }
 }
 

@@ -24,6 +24,7 @@
 		556A7FF42A4DCA1A00034312 /* WeatherData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556A7FF02A4DCA1A00034312 /* WeatherData+CoreDataProperties.swift */; };
 		556A7FF62A4DCA7000034312 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556A7FF52A4DCA7000034312 /* CoreDataManager.swift */; };
 		556A7FF92A4DCFAC00034312 /* AddCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556A7FF82A4DCFAC00034312 /* AddCityViewModel.swift */; };
+		556A7FFB2A4DE14200034312 /* CityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556A7FFA2A4DE14200034312 /* CityDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		556A7FF02A4DCA1A00034312 /* WeatherData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		556A7FF52A4DCA7000034312 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		556A7FF82A4DCFAC00034312 /* AddCityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewModel.swift; sourceTree = "<group>"; };
+		556A7FFA2A4DE14200034312 /* CityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			children = (
 				556A7FE82A4DBA4800034312 /* HomeViewController.swift */,
 				556A7FEA2A4DBC4F00034312 /* AddCityViewController.swift */,
+				556A7FFA2A4DE14200034312 /* CityDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556A7FFB2A4DE14200034312 /* CityDetailsViewController.swift in Sources */,
 				556A7FF42A4DCA1A00034312 /* WeatherData+CoreDataProperties.swift in Sources */,
 				556A7FF32A4DCA1A00034312 /* WeatherData+CoreDataClass.swift in Sources */,
 				556A7FF12A4DCA1A00034312 /* City+CoreDataClass.swift in Sources */,

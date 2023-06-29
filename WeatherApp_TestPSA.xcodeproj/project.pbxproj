@@ -31,6 +31,7 @@
 		559CED932A4DF97E00E8752B /* WeatherAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559CED922A4DF97E00E8752B /* WeatherAPICall.swift */; };
 		559CED962A4DF9EB00E8752B /* WeatherApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559CED952A4DF9EB00E8752B /* WeatherApiResponse.swift */; };
 		559CED982A4DFAAD00E8752B /* ApiCallError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559CED972A4DFAAD00E8752B /* ApiCallError.swift */; };
+		559CED9A2A4E0A1100E8752B /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559CED992A4E0A1100E8752B /* SpinnerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		559CED922A4DF97E00E8752B /* WeatherAPICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPICall.swift; sourceTree = "<group>"; };
 		559CED952A4DF9EB00E8752B /* WeatherApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApiResponse.swift; sourceTree = "<group>"; };
 		559CED972A4DFAAD00E8752B /* ApiCallError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCallError.swift; sourceTree = "<group>"; };
+		559CED992A4E0A1100E8752B /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				559CED8D2A4DEDF700E8752B /* NetworkMonitor.swift */,
+				559CED992A4E0A1100E8752B /* SpinnerViewController.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				556A7FF12A4DCA1A00034312 /* City+CoreDataClass.swift in Sources */,
 				556A7FEB2A4DBC4F00034312 /* AddCityViewController.swift in Sources */,
 				559CED932A4DF97E00E8752B /* WeatherAPICall.swift in Sources */,
+				559CED9A2A4E0A1100E8752B /* SpinnerViewController.swift in Sources */,
 				559CED8C2A4DEBA500E8752B /* CityDetailsViewModel.swift in Sources */,
 				556A7FF22A4DCA1A00034312 /* City+CoreDataProperties.swift in Sources */,
 				556A7FF92A4DCFAC00034312 /* AddCityViewModel.swift in Sources */,

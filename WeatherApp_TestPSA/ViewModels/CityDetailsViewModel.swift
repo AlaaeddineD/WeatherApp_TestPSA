@@ -32,10 +32,13 @@ final class CityDetailsViewModel{
     }
     
     func loadCityData(){
+        delegate?.showHideLoadingSpinner(show: true)
+        
         weatherApiCall.makeWeatherApiCall(city: city){
             [weak self] result in
             
             DispatchQueue.main.async {
+                self?.delegate?.showHideLoadingSpinner(show: false)
                 switch result{
                 case .success(let data):
                     if let weatherData = self?.city.weatherData{

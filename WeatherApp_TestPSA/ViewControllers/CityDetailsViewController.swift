@@ -25,6 +25,7 @@ protocol CityDetailsVCProtocol{
                      rain: String,
                      snow: String
     )
+    func showHideLoadingSpinner(show: Bool)
 }
 
 class CityDetailsViewController: UIViewController {
@@ -49,6 +50,7 @@ class CityDetailsViewController: UIViewController {
     @IBOutlet weak var snowLabel: UILabel!
     
     private let viewModel: CityDetailsViewModel
+    private let spinner = SpinnerViewController()
     
     init?(coder: NSCoder, city: City) {
         viewModel = CityDetailsViewModel(city: city)
@@ -123,5 +125,18 @@ extension CityDetailsViewController: CityDetailsVCProtocol{
         sunsetLabel.text = sunsetTime
         rainLabel.text = rain
         snowLabel.text = snow
+    }
+    
+    func showHideLoadingSpinner(show: Bool){
+        if show {
+            addChild(spinner)
+            spinner.view.frame = view.frame
+            view.addSubview(spinner.view)
+            spinner.didMove(toParent: self)
+        }else {
+            spinner.willMove(toParent: nil)
+            spinner.view.removeFromSuperview()
+            spinner.removeFromParent()
+        }
     }
 }

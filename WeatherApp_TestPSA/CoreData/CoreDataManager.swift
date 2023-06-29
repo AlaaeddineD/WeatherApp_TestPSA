@@ -32,6 +32,17 @@ final class CoreDataManager{
         save()
     }
     
+    func fetchCities() -> [City] {
+        let request: NSFetchRequest<City> = City.fetchRequest()
+        var fetchedCities: [City] = []
+        do {
+            fetchedCities = try persistentContainer.viewContext.fetch(request)
+        } catch let error {
+            print("Error fetching citites: \(error)")
+        }
+        return fetchedCities
+    }
+    
     func save () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

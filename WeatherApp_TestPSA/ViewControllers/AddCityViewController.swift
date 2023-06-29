@@ -8,6 +8,12 @@
 import UIKit
 import MapKit
 
+protocol AddCityVCProtocol{
+    func showErrorAlertWithMessage(message: String)
+    func askToConfirmSelectedCity(name: String, country: String?)
+    func cityAddedAndSaved()
+}
+
 class AddCityViewController: UIViewController {
     
     static let storyboardIdentifier = "AddCityView"
@@ -16,6 +22,7 @@ class AddCityViewController: UIViewController {
     @IBOutlet weak var suggestionsTableView: UITableView!
     
     //MARK: Properties
+    private let viewModel = AddCityViewModel()
     private var searchController: UISearchController!
     private var searchCompleter = MKLocalSearchCompleter()
     private var searchResults = [MKLocalSearchCompletion]()
@@ -25,10 +32,53 @@ class AddCityViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Add City"
+        viewModel.delegate = self
         
         setupSearchBar()
         setupSearchCompleter()
         setupSuggestionsTableView()
+    }
+}
+
+//MARK: ViewModel delegation
+extension AddCityViewController: AddCityVCProtocol{
+    
+    /// Afficher une alerte simple avec un message
+    func showErrorAlertWithMessage(message: String) {
+        let dialogAlert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "Ok", style: .cancel)
+        dialogAlert.addAction(alertAction)
+        
+        present(dialogAlert, animated: true)
+    }
+    
+    ///Demander à l'utilisateur de confirmer la ville sélectionnée avant son enregistrement
+    func askToConfirmSelectedCity(name: String, country: String?){
+        var message = ""
+        
+        if let country = country {
+            message = "Voulez-vous ajouter \(name), \(country) à votre liste"
+        }else {
+            message = "Voulez-vous ajouter \(name) à votre liste"
+        }
+        
+        let dialogAlert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Non", style: .cancel)
+        let acceptAction = UIAlertAction(title: "Oui", style: .default){ [weak self] _ in
+            self?.viewModel.addAndSaveSelectedCity()
+            self?.dismiss(animated: true)
+        }
+        
+        dialogAlert.addAction(acceptAction)
+        dialogAlert.addAction(cancelAction)
+        
+        present(dialogAlert, animated: true)
+    }
+    
+    func cityAddedAndSaved(){
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -109,5 +159,7 @@ extension AddCityViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         suggestionsTableView.deselectRow(at: indexPath, animated: true)
+        
+        viewModel.validateSearchRequestData(searchResult: searchResults[indexPath.row])
     }
 }
